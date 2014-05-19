@@ -1,0 +1,16 @@
+# Build the image of ubuntu with nginx
+FROM ubuntu:14.04
+
+# Run apt-get update
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    apt-get -y dist-upgrade
+
+# Install LAMP
+RUN apt-get -y install build-essential drush gawk git htop iftop iotop lynx mutt mysql-client mysql-server nginx nmon ntp openjdk-7-jre-headless php5-curl php5-dev php5-fpm php5-gd php5-json php5-ldap php5-mysql php5-readline python-dev python-pip python-software-properties screen tmux tree varnish vim wget openssh-server
+
+# add startup script for the GRANT ALL MySQL command
+ADD ./startup.sh /opt/startup.sh
+
+CMD ["/bin/bash", "/opt/startup.sh"]
+

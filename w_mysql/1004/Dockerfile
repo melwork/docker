@@ -1,0 +1,14 @@
+# Build the image of ubuntu
+FROM ubuntu:10.04
+
+# Run apt-get update
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    apt-get -y dist-upgrade
+
+# Install MySQL
+RUN apt-get -y install build-essential drush gawk htop iftop iotop lynx mutt mysql-client mysql-server nmon ntp python-dev python-pip python-software-properties screen tree tmux vim wget openssh-server
+
+# Expose MySQL port
+EXPOSE 3306
+
