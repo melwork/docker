@@ -1,4 +1,4 @@
-# Build the image of ubuntu
+# Build the image of ubuntu with MySQL
 FROM ubuntu:14.04
 
 # Run apt-get update
@@ -10,5 +10,5 @@ RUN apt-get -y update && \
 RUN apt-get -y install build-essential drush gawk git htop iftop iotop lynx mutt mysql-client mysql-server nmon ntp python-dev python-pip python-software-properties screen tree tmux vim wget openssh-server
 
 # Expose MySQL port
-EXPOSE 3306
+#EXPOSE 3306
 
